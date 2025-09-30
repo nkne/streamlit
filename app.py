@@ -1,5 +1,6 @@
 import streamlit as st
 from supabase import create_client, Client
+import pandas as pd
 
 # Datos de tu proyecto Supabase
 url = "https://abidwxvmyvxgntkmceaj.supabase.co"
@@ -13,7 +14,18 @@ if st.button("Mostrar todos los clientes"):
     response = supabase.table("clientes").select("*").execute()
     
     if response.data:
-        # Mostrar tabla completa
-        st.table(response.data)
+        df = pd.DataFrame(response.data)
+        
+        # Crear estilo con encabezado amarillo y filas alternadas
+        styled_df = df.style.set_table_styles(
+            [
+                {'selector': 'th', 'props': [('background-color', 'yellow'), ('color', 'black')]},
+                {'selector': 'tr:nth-child(even)', 'props': [('background-color', '#f2f2f2')]},
+                {'selector': 'tr:nth-child(odd)', 'props': [('background-color', 'white')]}
+            ]
+        )
+        
+        # Mostrar tabla con estilo
+        st.dataframe(styled_df)
     else:
         st.write("No hay clientes en la base de datos.")

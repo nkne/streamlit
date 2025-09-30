@@ -1,20 +1,11 @@
 import streamlit as st
-from supabase import create_client, Client
-import pandas as pd
-
-# Datos de tu proyecto Supabase
-url = "https://abidwxvmyvxgntkmceaj.supabase.co"
-key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFiaWR3eHZteXZ4Z250a21jZWFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkyMDcyNjAsImV4cCI6MjA3NDc4MzI2MH0.IPChPgIsnMaassJpw0kaUJu3nZA8qQb3msD-rw1BoTk"
-supabase: Client = create_client(url, key)
-
-import streamlit as st
 import pandas as pd
 from supabase import create_client, Client
 from io import BytesIO
 
 # Datos de tu proyecto Supabase
 url = "https://abidwxvmyvxgntkmceaj.supabase.co"
-key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."  # tu anon key
+key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFiaWR3eHZteXZ4Z250a21jZWFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkyMDcyNjAsImV4cCI6MjA3NDc4MzI2MH0.IPChPgIsnMaassJpw0kaUJu3nZA8qQb3msD-rw1BoTk"
 supabase: Client = create_client(url, key)
 
 st.title("Tabla de Clientes Interactiva Tipo Excel")

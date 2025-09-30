@@ -44,7 +44,7 @@ if response.data:
     df_filtrado.to_excel(buffer, index=False)
     buffer.seek(0)
     st.download_button(
-        label="📥 Exportar a Excel",
+        label="Exportar a Excel",
         data=buffer,
         file_name="clientes_filtrados.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
@@ -52,8 +52,3 @@ if response.data:
 
 else:
     st.write("No hay clientes en la base de datos.")
-        
-        # Mostrar tabla con estilo
-        st.dataframe(styled_df)
-    else:
-        st.write("No hay clientes en la base de datos.")
